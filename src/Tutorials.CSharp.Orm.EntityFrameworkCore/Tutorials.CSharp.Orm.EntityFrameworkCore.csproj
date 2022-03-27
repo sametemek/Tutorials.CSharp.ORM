@@ -8,16 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="OrmTutorialDB.db" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="OrmTutorialDB.db">
+    <Content Include="..\OrmTutorialDB.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.3" />
     <PackageReference Include="System.Data.SQLite.Core" Version="1.0.115.5" />
   </ItemGroup>
 

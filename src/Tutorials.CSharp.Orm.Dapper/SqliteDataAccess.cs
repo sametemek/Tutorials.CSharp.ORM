@@ -6,23 +6,23 @@ namespace Tutorials.CSharp.Orm.Dapper
 {
     public static class SqliteDataAccess
     {
-        public static List<Person> GetPersons()
+        public static List<User> GetUsers()
         {
             using IDbConnection connection = new SQLiteConnection(LoadConnectionString());
-            var queryResult = connection.Query<Person>("select * from Person", new DynamicParameters());
+            var queryResult = connection.Query<User>("select * from Users", new DynamicParameters());
             return queryResult.ToList();
         }
 
-        public static void AddPerson(Person person)
+        public static void AddUser(User user)
         {
             using IDbConnection connection = new SQLiteConnection(LoadConnectionString());
-            connection.Execute("INSERT INTO Person(FirstName, LastName) values(@FirstName, @LastName)", person);
+            connection.Execute("INSERT INTO Users(FirstName, LastName) values(@FirstName, @LastName)", user);
         }
 
-        public static void DeletePersons()
+        public static void DeleteAllUsers()
         {
             using IDbConnection connection = new SQLiteConnection(LoadConnectionString());
-            connection.Execute("DELETE FROM Person");
+            connection.Execute("DELETE FROM Users");
         }
 
         private static string LoadConnectionString()

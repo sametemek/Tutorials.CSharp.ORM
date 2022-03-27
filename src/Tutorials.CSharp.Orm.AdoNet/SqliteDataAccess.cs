@@ -5,47 +5,47 @@ namespace Tutorials.CSharp.Orm.AdoNet
 {
     public static class SqliteDataAccess
     {
-        public static List<Person> GetPersons()
+        public static List<User> GetUsers()
         {
             using IDbConnection connection = new SQLiteConnection(LoadConnectionString());
             connection.Open();
             var sqLiteCommand = connection.CreateCommand();
-            sqLiteCommand.CommandText = "select * from Person";
+            sqLiteCommand.CommandText = "select * from Users";
 
             var sqLiteDataReader = sqLiteCommand.ExecuteReader();
 
-            var persons = new List<Person>();
+            var users = new List<User>();
             while (sqLiteDataReader.Read())
             {
-                var person = new Person();
+                var user = new User();
 
-                person.Id = sqLiteDataReader.GetInt32(0);
-                person.FirstName = sqLiteDataReader.GetString(1);
-                person.LastName = sqLiteDataReader.GetString(2);
-                persons.Add(person);
+                user.Id = sqLiteDataReader.GetInt32(0);
+                user.FirstName = sqLiteDataReader.GetString(1);
+                user.LastName = sqLiteDataReader.GetString(2);
+                users.Add(user);
             }
 
             connection.Close();
-            return persons;
+            return users;
         }
 
-        public static void AddPerson(Person person)
+        public static void AddUser(User user)
         {
             using IDbConnection connection = new SQLiteConnection(LoadConnectionString());
             connection.Open();
             var sqLiteCommand = connection.CreateCommand();
             sqLiteCommand.CommandText =
-                $"INSERT INTO Person(FirstName, LastName) values('{person.FirstName}', '{person.LastName}')";
+                $"INSERT INTO Users(FirstName, LastName) values('{user.FirstName}', '{user.LastName}')";
             sqLiteCommand.ExecuteNonQuery();
             connection.Close();
         }
 
-        public static void DeletePersons()
+        public static void DeleteAllUsers()
         {
             using IDbConnection connection = new SQLiteConnection(LoadConnectionString());
             connection.Open();
             var sqLiteCommand = connection.CreateCommand();
-            sqLiteCommand.CommandText = "DELETE FROM Person";
+            sqLiteCommand.CommandText = "DELETE FROM Users";
             sqLiteCommand.ExecuteNonQuery();
             connection.Close();
         }
