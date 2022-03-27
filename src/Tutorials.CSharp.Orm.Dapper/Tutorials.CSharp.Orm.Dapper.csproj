@@ -8,11 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="OrmTutorialDB.db" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="OrmTutorialDB.db">
+    <Content Include="..\OrmTutorialDB.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

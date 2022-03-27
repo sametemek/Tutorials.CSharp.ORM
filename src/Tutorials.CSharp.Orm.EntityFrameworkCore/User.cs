@@ -1,6 +1,6 @@
-﻿namespace Tutorials.CSharp.Orm.AdoNet
+﻿namespace Tutorials.CSharp.Orm.EntityFrameworkCore
 {
-    public class Person
+    public class User
     {
         public int Id { get; set; }
         public string FirstName { get; set; }
