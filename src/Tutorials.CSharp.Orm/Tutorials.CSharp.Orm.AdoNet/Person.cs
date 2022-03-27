@@ -1,4 +1,4 @@
-﻿namespace Tutorials.CSharp.Orm.Dapper
+﻿namespace Tutorials.CSharp.Orm.AdoNet
 {
     public class Person
     {

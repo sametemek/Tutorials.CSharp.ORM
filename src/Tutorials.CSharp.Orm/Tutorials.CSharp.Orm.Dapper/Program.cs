@@ -6,11 +6,11 @@ Console.WriteLine("Hello, NextInventors!");
 
 SqliteDataAccess.DeletePersons();
 
-SqliteDataAccess.AddPerson(new Person("Aysu", "Şevik"));
-SqliteDataAccess.AddPerson(new Person("Esra", "Demir"));
-SqliteDataAccess.AddPerson(new Person("Serhat", "Omaç"));
-SqliteDataAccess.AddPerson(new Person("Fatih", "Akgöz"));
-SqliteDataAccess.AddPerson(new Person("Samet", "Emek"));
+SqliteDataAccess.AddPerson(new Person() { FirstName = "Aysu", LastName = "Şevik" });
+SqliteDataAccess.AddPerson(new Person() { FirstName = "Esra", LastName = "Demir" });
+SqliteDataAccess.AddPerson(new Person() { FirstName = "Serhat", LastName = "Omaç" });
+SqliteDataAccess.AddPerson(new Person() { FirstName = "Fatih", LastName = "Akgöz" });
+SqliteDataAccess.AddPerson(new Person() { FirstName = "Samet", LastName = "Emek" });
 
 
 var persons = SqliteDataAccess.GetPersons();
